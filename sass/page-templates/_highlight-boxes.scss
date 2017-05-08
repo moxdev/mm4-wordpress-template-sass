@@ -1,0 +1,105 @@
+#home-highlight-inner-wrapper {
+    max-width:1300px;
+    margin:0 auto;
+}
+
+#home-highlight-inner-wrapper .home-highlight {
+    padding:2em;
+    background-color:#808080;
+    text-align:center;
+    border-bottom:1px solid #FFF;
+}
+
+#home-highlight-inner-wrapper .home-highlight, #home-highlight-inner-wrapper .home-highlight a {
+    color:#FFF;
+}
+
+#home-highlight-inner-wrapper .home-highlight span {
+    display:block;
+    font-size:1.1em;
+    line-height:1.1;
+}
+
+#home-highlight-inner-wrapper .home-highlight span.highlight-title {
+    font-size:1.8em;
+    font-weight:700;
+    margin:0 0 .2em 0;
+}
+
+#home-highlight-inner-wrapper .home-highlight span.highlight-desc {
+    font-size:1.3em;
+}
+
+#home-highlight-inner-wrapper .home-highlight span.highlight-url {
+    margin:1em 0 0 0;
+}
+
+#home-highlight-inner-wrapper .home-highlight span.highlight-url a {
+    text-decoration:none;
+    text-transform:uppercase;
+}
+
+@media screen and (min-width:725px) {
+    #home-highlight-inner-wrapper {
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    }
+
+    .highlight-4 #home-highlight-inner-wrapper {
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+
+    #home-highlight-inner-wrapper .home-highlight {
+        -webkit-flex: 1 1 0%;
+        -ms-flex: 1 1 0%;
+        flex: 1 1 0%;
+        border-right:1px solid #FFF;
+    }
+
+    .highlight-4 #home-highlight-inner-wrapper .home-highlight {
+        -webkit-flex: 1 1 50%;
+        -ms-flex: 1 1 50%;
+        flex: 1 1 50%;
+    }
+
+    #home-highlight-inner-wrapper .home-highlight:last-child, .highlight-4 #home-highlight-inner-wrapper .home-highlight:nth-child(2) {
+        border-right:none;
+    }
+
+    #home-highlight-inner-wrapper .home-highlight span {
+        font-size:.9em;
+    }
+
+    #home-highlight-inner-wrapper .home-highlight span.highlight-title {
+        font-size:1.5em;
+    }
+
+    #home-highlight-inner-wrapper.highlight-3 span.highlight-desc {
+        font-size:1em;
+    }
+}
+
+@media screen and (min-width:975px) {
+    #home-highlight-inner-wrapper .home-highlight {
+        padding:4em 2em;
+    }
+
+    .highlight-4 #home-highlight-inner-wrapper .home-highlight {
+        -webkit-flex: 1 1 0%;
+        -ms-flex: 1 1 0%;
+        flex: 1 1 0%;
+    }
+
+    .highlight-4 #home-highlight-inner-wrapper .home-highlight:nth-child(2) {
+        border-right:1px solid #FFF;
+    }
+}
