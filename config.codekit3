@@ -108,6 +108,18 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"\/inc\/carousel.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/inc\/carousel.php",
+		"oF": 0
+		},
+	"\/inc\/contact-page-sidebar.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/inc\/contact-page-sidebar.php",
+		"oF": 0
+		},
 	"\/inc\/custom-header.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -126,10 +138,22 @@
 		"oAP": "\/inc\/extras.php",
 		"oF": 0
 		},
+	"\/inc\/highlight-boxes.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/inc\/highlight-boxes.php",
+		"oF": 0
+		},
 	"\/inc\/jetpack.php": {
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/inc\/jetpack.php",
+		"oF": 0
+		},
+	"\/inc\/photo-gallery.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/inc\/photo-gallery.php",
 		"oF": 0
 		},
 	"\/inc\/template-tags.php": {

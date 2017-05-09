@@ -201,6 +201,26 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 /**
+ * Load homepage carousel.
+ */
+require get_template_directory() . '/inc/carousel.php';
+
+/**
+ * Load highlight-boxes.
+ */
+require get_template_directory() . '/inc/highlight-boxes.php';
+
+/**
+ * Load photo gallery.
+ */
+require get_template_directory() . '/inc/photo-gallery.php';
+
+/**
+ * Load contact page sidebar.
+ */
+require get_template_directory() . '/inc/contact-page-sidebar.php';
+
+/**
  * Load the MM4 contact form plugin.
  */
 include_once( get_stylesheet_directory() . '/plugins/mm4-you-contact-form/mm4-you-cf.php' );
@@ -250,54 +270,6 @@ function mm4_you_sidebar_wysiwyg() {
 	}
 }
 
-function mm4_you_contact_page_sidebar() {
-	if(is_page_template('page-contact.php')) {
-		$add = get_theme_mod('setting_address');
-		$city = get_theme_mod('setting_city');
-		$state = get_theme_mod('setting_state');
-		$zip = get_theme_mod('setting_zip');
-		$ph = get_theme_mod('setting_phone');
-		$fx = get_theme_mod('setting_fax');
-		$email = get_theme_mod('setting_email');
-		$hours1 = get_theme_mod('setting_hours_1');
-		$hours2 = get_theme_mod('setting_hours_2');
-		$hours3 = get_theme_mod('setting_hours_3');
-
-		if($hours1 || $hours2 || $hours3) { ?>
-			<aside id="office-hours">
-				<h2>Office Hours</h2>
-				<?php if($hours1): ?><span class="hours" id="side-hours-1"><?php echo $hours1; ?></span><?php endif;
-				 if($hours2): ?><span class="hours" id="side-hours-2"><?php echo $hours2; ?></span><?php endif;
-				 if($hours3): ?><span class="hours" id="side-hours-3"><?php echo $hours3; ?></span><?php endif; ?>
-			</aside>
-		<?php }
-
-		if($add || $city || $state || $zip || $ph || $fx || $email) { ?>
-			<aside id="address-phone">
-				<h2>Address/Phone</h2>
-				<?php if($add): ?><span class="side-contact" id="side-address-1"><?php echo $add; ?></span><?php endif;
-				if($city): ?><span class="side-contact" id="side-city"><?php echo $city; ?></span><?php endif; if($city || $state || $zip): ?><span class="comma">, </span><?php endif; if($state): ?><span class="side-contact" id="side-state"><?php echo $state; ?> </span><?php endif; if($zip): ?><span class="side-contact" id="side-zip"><?php echo $zip; ?></span><?php endif;
-				if($ph): ?><span class="side-contact" id="side-phone"><a href="tel:<?php echo $ph; ?>" class="tel"><?php echo $ph; ?></a></span><?php endif;
-				if($fx): ?><span class="side-contact" id="side-fax"><a href="fax:<?php echo $fx; ?>" class="tel"><?php echo $fx; ?></a></span><?php endif;
-				if($email): ?><span class="side-contact" id="side-email"><a href="mailto:<?php echo $email; ?>" target="_blank"><?php echo $email; ?></a></span><?php endif; ?>
-			</aside>
-		<?php } ?>
-
-		<aside id="directions">
-			<h2>Get Directions</h2>
-			<div id="side-map-canvas" class="map-canvas"></div>
-			<form id="form-directions" onSubmit="calcRoute(); return false;">
-				<label for="start">Starting Address</label>
-				<input type="text" id="start" name="start">
-				<input type="hidden" id="end" name="end" value="<?php echo $add . ', ' . $city . ', ' . $state . ' ' . $zip; ?>">
-				<div class="error-box" id="map-error"></div>
-				<input type="button" onclick="calcRoute();" value="Get Directions" class="btn">
-			</form>
-			<div id="directions-panel"></div>
-		</aside>
-
-	<?php }
-}
 
 function mm4_you_contact_page_build_map() {
 	$name = get_theme_mod('setting_name');
@@ -320,152 +292,4 @@ function mm4_you_contact_page_build_map() {
 
 add_action('wp_footer', 'mm4_you_contact_page_build_map');
 
-/**
- * FRONT PAGE
- */
 
-function mm4_you_home_carousel_body_class( $classes ) {
-	// Adds a class of group-blog to blogs with more than 1 published author.
-	if ( is_page_template('frontpage-a.php') || is_page_template('frontpage-b.php') || is_page_template('frontpage-c.php') && function_exists('get_field') ) {
-		if( get_field('add_image_carousel') == 'Yes' )
-		$classes[] = 'has-carousel';
-	}
-
-	return $classes;
-}
-add_filter( 'body_class', 'mm4_you_home_carousel_body_class' );
-
-
-function mm4_you_home_carousel_type_1() {
-	if( is_page_template('frontpage-a.php') || is_page_template('frontpage-b.php') ) {
-		if( function_exists('get_field') ) {
-			$addCarousel = get_field('add_image_carousel');
-			if( $addCarousel == 'Yes' && have_rows('slides') ): ?>
-				<div id="home-carousel" class="carousel-type-1">
-					<ul>
-					<?php while ( have_rows('slides') ) : the_row(); ?>
-						<li>
-						<?php $text = get_sub_field('slide_caption');
-						$imageArr = get_sub_field('slide_image');
-						$image = wp_get_attachment_image_src($imageArr[id], 'front-page-slide-1'); ?>
-						<img src="<?php echo $image[0] ?>" alt="<?php echo $imageArr[title]; ?>">
-						<span><?php echo $text; ?></span>
-						</li>
-					<?php endwhile; ?>
-					</ul>
-					<?php $rows = get_field('slides');
-					$rowCount = count($rows); ?>
-					<ol class="carousel-nav">
-					<?php for ($i = 1; $i <= $rowCount; $i++) { ?>
-						<li><a href="#"><?php echo $i; ?></a></li>
-					<?php } ?>
-					</ol>
-				</div>
-			<?php endif;
-		}
-	}
-}
-
-function mm4_you_home_carousel_type_2() {
-	if( is_page_template('frontpage-c.php') ) {
-		if( function_exists('get_field') ) {
-			$addCarousel = get_field('add_image_carousel');
-			if( $addCarousel == 'Yes' && have_rows('slides') ): ?>
-				<div id="home-carousel" class="carousel-type-2">
-					<ul>
-					<?php while ( have_rows('slides') ) : the_row(); ?>
-						<li>
-						<?php $imageArr = get_sub_field('slide_image');
-						$image = wp_get_attachment_image_src($imageArr[id], 'front-page-slide-2'); ?>
-						<img src="<?php echo $image[0] ?>" alt="<?php echo $imageArr[title]; ?>">
-						</li>
-					<?php endwhile; ?>
-					</ul>
-				</div>
-			<?php endif;
-		}
-	}
-}
-
-function mm4_you_home_carousel_type_2_controls() {
-	if( is_page_template('frontpage-c.php') ) {
-		if( function_exists('get_field') ) {
-			$addCarousel = get_field('add_image_carousel');
-			if( $addCarousel == 'Yes' && have_rows('slides') ):
-				$rows = get_field('slides');
-				$rowCount = count($rows); ?>
-				<ol class="carousel-nav">
-				<?php for ($i = 1; $i <= $rowCount; $i++) { ?>
-					<li><a href="#"><?php echo $i; ?></a></li>
-				<?php } ?>
-				</ol>
-		<?php endif;
-		}
-	}
-}
-
-function mm4_you_highlight_boxes() {
-	if(is_page_template('frontpage-a.php') || is_page_template('frontpage-b.php') ) {
-		if( function_exists('get_field') ) {
-			$rows = get_field('highlights');
-			$rowCount = count($rows);
-			$addHighlights = get_field('add_highlight_boxes');
-			if( $addHighlights == 'Yes' && have_rows('highlights') ): ?>
-				<div id="home-highlight-wrapper" class="highlight-<?php echo $rowCount; ?>">
-					<div id="home-highlight-inner-wrapper">
-						<?php while( have_rows('highlights') ): the_row();
-						$title = get_sub_field('highlight_title');
-						$desc = get_sub_field('highlight_description');
-						$linkTxt = get_sub_field('highlight_link_text');
-						$url = get_sub_field('highlight_url'); ?>
-							<div class="home-highlight">
-								<?php if($title): ?><span class="highlight-title"><?php echo $title; ?></span><?php endif; echo "\n";
-								if($desc): ?><span class="highlight-desc"><?php echo $desc; ?></span><?php endif; echo "\n";
-								if($url): ?><span class="highlight-url"><a href="<?php echo $url; ?>"><?php if($linkTxt): echo $linkTxt . ' &raquo;'; else: ?>Learn More &raquo;<?php endif; ?></a></span><?php endif; echo "\n"; ?>
-							</div>
-						<?php endwhile; ?>
-					</div>
-				</div>
-			<?php endif;
-		}
-	}
-}
-
-/**
- * PHOTO GALLERY
- */
-
-function mm4_you_photo_gallery() {
-	if( is_page_template('page-photo-gallery.php') ) {
-		if( function_exists('get_field') ) {
-			if( have_rows('images') ): ?>
-				<div id="gallery-main">
-					<ul>
-					<?php while ( have_rows('images') ) : the_row(); ?>
-						<li>
-						<?php $imageArr = get_sub_field('gallery_image');
-						$image = wp_get_attachment_image_src($imageArr[id], 'gallery-main'); ?>
-						<img src="<?php echo $image[0] ?>" alt="<?php echo $imageArr[alt]; ?>">
-						</li>
-					<?php endwhile; ?>
-					</ul>
-					<button class="carousel-btn" id="prev" aria-controls="galery-main" aria-label="Previous">Previous</button>
-					<button class="carousel-btn" id="next" aria-controls="gallery-main" aria-label="Next">Next</button>
-				</div>
-			<?php endif;
-			if( have_rows('images') ): ?>
-				<div id="gallery-thumbs">
-					<ul>
-					<?php while ( have_rows('images') ) : the_row(); ?>
-						<li><a href="#">
-						<?php $imageArr = get_sub_field('gallery_image');
-						$image = wp_get_attachment_image_src($imageArr[id], 'gallery-thumb'); ?>
-						<img src="<?php echo $image[0] ?>" alt="<?php echo $imageArr[title]; ?>">
-						</a></li>
-					<?php endwhile; ?>
-					</ul>
-				</div>
-			<?php endif;
-		}
-	}
-}
