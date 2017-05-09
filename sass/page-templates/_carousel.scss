@@ -88,7 +88,7 @@ ol.carousel-nav li:last-of-type {
 ol.carousel-nav li a {
     text-decoration:none;
     padding:.25em;
-    background-color:#000;
+    background-color:$color__carousel-nav;
     display:block;
     transition:background-color 2s;
     display:block;
@@ -99,7 +99,7 @@ ol.carousel-nav li a {
 }
 
 ol.carousel-nav li.active a {
-    background-color:#535353;
+    background-color:$color__carousel-nav-active;
 }
 
 ol.carousel-nav li.active a:hover {

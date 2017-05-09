@@ -21,6 +21,15 @@
 		"oAP": "\/archive.php",
 		"oF": 0
 		},
+	"\/bs-config.js": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/bs-config-min.js",
+		"oF": 1,
+		"sC": 0,
+		"tS": 0
+		},
 	"\/class-tgm-plugin-activation.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -2515,7 +2524,7 @@
 	"alwaysUseExternalServer": 0,
 	"animateCSSInjections": 1,
 	"autoBuildNewItems": 1,
-	"autoprefixerBrowserString": "> 1%, last 2 versions, Firefox ESR, Opera 12.1",
+	"autoprefixerBrowserString": "> 1%, last 3 versions, Firefox ESR, Opera 12.1",
 	"babelAuxiliaryCommentAfter": "",
 	"babelAuxiliaryCommentBefore": "",
 	"babelConfigFileHandlingType": 0,
