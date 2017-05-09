@@ -1,18 +1,46 @@
 $color__brand-1: #fff;
 $color__brand-2: #000;
-//$color__brand-3:
+$color__brand-3:#ccc;
 
+$color__background-body: #000;
+
+
+/*
+ * MASTHEAD STYLES
+ */
 
 $color__masthead-background: #fff;
+
+/*
+ * CAROUSEL STYLES
+ */
 
 $color__carousel-nav:#000;
 $color__carousel-nav-active:#e8e8e8;
 
-$color__background-body: #000;
+
+
+/*
+ * BUTTON STYLES
+ */
+
+$color__button-background: #e6e6e6;
+$color__button-color: #000;
+$color__button-border: none;
+$color__button-hover: red;
+$color__button-focus: red;
+
+/*
+ * PHOTO GALLERY STYLES
+ */
+
+$color_photo-gallery-nav-btn:$color__brand-3 ;
+
 
 $color__background-screen: #f1f1f1;
 $color__background-hr: #ccc;
-$color__background-button: #e6e6e6;
+
+
 $color__background-pre: #eee;
 $color__background-ins: #fff9c0;
 
@@ -24,8 +52,7 @@ $color__link-visited: purple;
 $color__link-hover: midnightblue;
 $color__text-main: #404040;
 
-$color__border-button: #ccc #ccc #bbb;
-$color__border-button-hover: #ccc #bbb #aaa;
-$color__border-button-focus: #aaa #bbb #bbb;
+
+
 $color__border-input: #ccc;
 $color__border-abbr: #666;

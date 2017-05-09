@@ -103,6 +103,7 @@
     background-position:center top;
     background-repeat:no-repeat;
     transition:right .15s, left .15s;
+    background-color: $color_photo-gallery-nav-btn;
 }
 
 #gallery-main .carousel-btn#prev {
