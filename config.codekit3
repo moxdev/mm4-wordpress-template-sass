@@ -1569,6 +1569,12 @@
 		"oAP": "\/sass\/.sass-cache\/1c439d78903b2fc4a06884a3e3c01375c4ef8bad\/_widgets.scssc",
 		"oF": 0
 		},
+	"\/sass\/.sass-cache\/28cfebb2b1ef4c9e00fe0553647264a70baa857d\/_footer.scssc": {
+		"ft": 8192,
+		"oA": 1,
+		"oAP": "\/sass\/.sass-cache\/28cfebb2b1ef4c9e00fe0553647264a70baa857d\/_footer.scssc",
+		"oF": 0
+		},
 	"\/sass\/.sass-cache\/3c07fa0ae2d5a50c82e7d29bc04034d5e345cc0e\/_asides.scssc": {
 		"ft": 8192,
 		"oA": 1,
@@ -2391,6 +2397,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/sass\/typography\/_typography.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/sass\/variables-site\/_breakpoints.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/sass\/variables-site\/_breakpoints.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1

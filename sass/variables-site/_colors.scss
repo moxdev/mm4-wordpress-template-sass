@@ -26,15 +26,30 @@ $color__carousel-nav-active:#e8e8e8;
 
 $color__button-background: #e6e6e6;
 $color__button-color: #000;
-$color__button-border: none;
+$color__button-border: #000;
 $color__button-hover: red;
 $color__button-focus: red;
+
+/*
+ * FORM STYLES
+ */
+
+ $_color-brand-color-3: #000;
 
 /*
  * PHOTO GALLERY STYLES
  */
 
 $color_photo-gallery-nav-btn:$color__brand-3 ;
+
+/*
+ * PHOTO GALLERY STYLES
+ */
+
+$color__footer-background: #000;
+$color__footer-color: #fff;
+
+
 
 
 $color__background-screen: #f1f1f1;

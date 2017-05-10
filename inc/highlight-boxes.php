@@ -26,11 +26,19 @@ function mm4_you_highlight_boxes() {
                             $title   = get_sub_field('highlight_title');
                             $desc    = get_sub_field('highlight_description');
                             $linkTxt = get_sub_field('highlight_link_text');
-                            $url     = get_sub_field('highlight_url'); ?>
+                            $url     = get_sub_field('highlight_url');
+                            $img     = get_sub_field('highlight_image');
+                            $img_url = $img['url'];
 
-                            <div class="home-highlight">
+                            echo '<div class="home-highlight"';
 
-                                <?php if($title): ?>
+                                if( $img ) {
+                                    echo ' style="background-image:url("';
+                                }
+
+                            echo '>';
+
+                                if($title): ?>
                                     <span class="highlight-title"><?php echo $title; ?></span>
                                 <?php endif; echo "\n";
 
@@ -50,3 +58,26 @@ function mm4_you_highlight_boxes() {
         }
     }
 }
+
+/*
+<?php if($img) : ?>
+    <img src="<?php echo $img['sizes']['home-highlight-image']; ?>" alt="<?php echo $img['alt']; ?>" description="<?php echo $img['description']; ?>">
+<?php endif;
+
+
+
+<div class="home-highlight" style="background-image: url(<?php echo $img['url']; ?>)">
+
+. 'if ($img) {style='background-image: url(<?php echo $img['url']; ?>)'} ?>"
+
+
+
+THis works
+echo "<div class='home-highlight' . 'if ($img) { style='background-color:#000'} >";
+
+
+if( $img ) {
+    echo ' style="background-image:url(' . $img['url']; . ');"';
+}
+
+*/
